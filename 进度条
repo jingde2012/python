@@ -1,0 +1,16 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from tqdm import tqdm
+import time
+
+num=100
+n=range(num)
+for i in n:
+    print("\r","已经完成{0}%".format(i),end="",flush=True)
+    time.sleep(0.2)
+
+for i in tqdm(n):
+    time.sleep(0.2)
+    pass
+
+
