@@ -1,0 +1,42 @@
+import sys
+from selenium import webdriver
+
+import time
+
+driver = webdriver.Chrome()
+driver.get('https://tieba.baidu.com/index.html')
+# 停顿8秒后再进行操作
+time.sleep(8)
+driver.find_element_by_xpath("//*[@class='u_login']").click()
+time.sleep(5)
+driver.find_element_by_xpath('//*[@class="tang-content"]/div/div/div/div/div[3]//*[@id="TANGRAM__PSP_10__footerULoginBtn"]').click()
+time.sleep(5)
+driver.find_element_by_id('TANGRAM__PSP_10__userName').send_keys('用户名')  #用户名
+driver.find_element_by_id('TANGRAM__PSP_10__password').send_keys('密码')  #密码
+driver.find_element_by_id('TANGRAM__PSP_10__submit').click() #登陆
+#driver.get('http://tieba.baidu.com/i/i/forum?&pn=7')
+# 停顿8秒后再进行操作
+time.sleep(25)
+
+for i in range(1,100):
+    driver.get('http://tieba.baidu.com/i/i/forum?&pn=1')
+    time.sleep(5)
+#element=driver.find_element_by_xpath('//*[@class="forum_main"]/div/table/tbody/tr[3]//*[@class="pt"]')
+    driver.find_element_by_xpath('//*[@class="forum_main"]/div/table/tbody/tr[8]//*[@class="pt"]').click()
+    #driver.find_element_by_link_text('确定').click()
+    time.sleep(5)
+    print(i)
+    driver.find_element_by_xpath('//*[@class="dialogJanswers"]/input[1]').click()
+    time.sleep(8)
+#print(element)
+#driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div/div/div/form/span[1]/input').clear()  #绝对路径
+#driver.find_element_by_xpath("//*[@class='tang-pass-footerBarULogin pass-link']").click()
+#time.sleep(5)
+
+#driver.find_element_by_id('TANGRAM__PSP_10__userName').send_keys('jingde2012')  #id定位
+#driver.find_element_by_id('TANGRAM__PSP_10__password').send_keys('cptbtptp12345')  #id定位
+#driver.find_element_by_id('TANGRAM__PSP_10__submit').click() #登陆
+
+
+
+
